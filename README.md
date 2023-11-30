@@ -21,6 +21,10 @@ The goal of this project is to introduce you to the concept of market basket ana
 
 #### Visualization
 
+![Scatterplot](Market Basket Analysis Rules Scatter Plot.PNG) 
+
+![Heatmap](Market Basket Analysis HeatMap.PNG) 
+
 #### Interpretation and Insights
 
 #### Recommendations
