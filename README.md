@@ -152,7 +152,7 @@ plt.title('Heatmap of Frequently Bought Items')
 plt.show()
 ```
 ![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/cb1d875f-b4aa-455d-8749-1d084abf258b)
-The heatmap 
+
 
 ```python
 # extract the values of support and confidence
@@ -161,7 +161,8 @@ confidence_values = []
 for rule in rules:
     support_values.append(rule[1])
     confidence_values.append(rule[2])
-    
+
+
 # create a scatter plot to show a trade-off between support and confidence
 plt.scatter(support_values, confidence_values)
 plt.xlabel('Support')
@@ -171,7 +172,7 @@ plt.show()
 ```
 ![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/11ecaea1-30b3-4392-9ec8-edac01a82e30)
 
-In the above chart(scatter plot), it 
+The chart above is a Scatter plot which displays the trade-off between support and confidence.
 
 #### Interpretation and Insights
 
