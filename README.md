@@ -155,8 +155,22 @@ plt.show()
 The heatmap 
 
 ```python
+# extract the values of support and confidence
+support_values = []
+confidence_values = []
+for rule in rules:
+    support_values.append(rule[1])
+    confidence_values.append(rule[2])
+    
+# create a scatter plot to show a trade-off between support and confidence
+plt.scatter(support_values, confidence_values)
+plt.xlabel('Support')
+plt.ylabel('Confidence')
 
+plt.show()
 ```
+![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/11ecaea1-30b3-4392-9ec8-edac01a82e30)
+
 In the above chart(scatter plot), it 
 
 #### Interpretation and Insights
