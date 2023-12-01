@@ -1,7 +1,6 @@
 # Market-Basket-Analysis-for-E-commerce
 ### Project Overview
-
-The goal of this project is to introduce you to the concept of market basket analysis, which is a crucial aspect of data science in retail or e-commerce. You will learn how to extract valuable insights for transaction data, understand customer purchasing behaviour and use this knowledge for business optimization.
+The objective of this project is to use Market Basket analysis, a critical component of data science in retail and e-commerce. The aim is to analyze a Grocery store dataset, extracting valuable insights from transaction data in a bid to understand customer purchasing behavior and optimize business strategies.
 
 ### Data Source
 The data used for this Analysis is the "Market Basket Analysis - Grocery_dataset.csv" file which contains detailed information on items that were bought from a Grocery Store during a given period of time.
@@ -39,7 +38,7 @@ data.head()
 ```
 ![1](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/92f9bd5b-b87c-4896-a4b5-d641392bf58e)
 
-The dataset consists of detailed information on purchases made at a Groceryy store which includes Transaction Date,  and Item Description
+The dataset consists of detailed information on purchases made at the Grocery store which includes Transaction Date, Member Number and Item Description.
 
 This gives the summary statistics of the data to be analysed.
 ```python
@@ -62,7 +61,9 @@ plt.show()
 From the visualization above, the top 5 most purchased items in the Grocery store include Whole milk, other vegetables, rolls/buns, soda and yogurt.
 
 ##### Data Preparation
-There is need for conversion of the data into a format that best suits Apriori algorithm before performing market basket analysis. Apriori algorithim is an algorithm used in the calculation of association rules between items to discover the most frequent ones. To start with, a new column is created which contains the Member number and the transaction date of items purchases.
+The data needs to be converted into a format that optimally suits the Apriori algorithm before conducting Market Basket analysis. The Apriori algorithm is used to calculate association rules between items, uncovering the most frequent ones.
+
+To start with, a new column is created which contains the Member number and the transaction date of items purchased.
 
 ```python
 # Form a new column 
@@ -79,7 +80,8 @@ data2.head()
 ```
 ![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/f73f9c8f-20c7-4891-95a9-63748984584b)
 
-We have like 167 columns and 5 rows. It's observed that just few items were bought, which is why we have a lot of zeroes as shown in the table above.
+We have like 167 columns and 5 rows. It's observed that just few items were bought, this is the reason why there are a lot of zeroes as seen in the table above.
+  
 
 The final step here involves encoding all the values in the data frame to 0 and 1.
 ```python
@@ -93,7 +95,7 @@ Basket_input = data2.applymap(encode)
 ```
 
 #### Market Basket Analysis
-The first step here is to install MLXtend python package and then, import the Apriori Algorithm from the MLXtend in order to obtain the comibation of items that are frequently bought together:
+The first step here is to install MLXtend python package and then, import the Apriori Algorithm from the MLXtend in order to obtain the combination of items that are frequently bought together:
 ```python
 # install mlxtend
 !pip install mlxtend
@@ -114,9 +116,9 @@ rules.head()
 ```
 ![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/e3bb908b-4e22-4a2a-bb1a-4a2d6e42045b)
 
-As shown above, the 'antecedents' and 'consequents' columns reveal items that are purchased together frequently. In the first row, it shows that an individual that bought "other vegetables" is also likely to have bought rolls/buns.
+As shown above, the 'antecedents' and 'consequents' columns reveal items that are frequently purchased together. In the first row, it shows that an individual that bought "other vegetables" is also likely to buy rolls/buns.
 
-In order to get the most frequently bought together combined items, there is need to sort the dataset by support, confidence and lift.
+In order to get the most frequently bought-together combined items, there is need to sort the dataset by support, confidence and lift.
 ```python
 # sorting the frequent itemsets bought together
 rules.sort_values(["support", "confidence", "lift"], axis = 0, ascending = False).head(10)
@@ -134,7 +136,7 @@ Whole milk was the most frequently bought item but along with other items for di
 
 #### Visualization
 
-These are the visualizations of the dataset to help discover the items that are frequently bought together in order to make a better decision in promoting the market items in the Grocery store  
+These are the visualizations of the dataset to help discover the items that are frequently bought together in order to make a better decision in promoting the market items in the Grocery Store.
 ```python
 # transform antecedent, consequent, and support columns into matrix
 support_table = rules.pivot(index = 'consequents', columns = 'antecedents', values = 'support')
