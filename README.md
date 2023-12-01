@@ -59,6 +59,7 @@ plt.grid()
 plt.show()
 ```
 ![Frequency of Most Popular Items](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/9fa7796f-a1f1-4286-ac94-c372688f7a23)
+From the visualization above, the top 5 most purchased items in the Grocery store include Whole milk, other vegetables, rolls/buns, soda and yogurt.
 
 ##### Data Preparation
 There is need for conversion of the data into a format that best suits Apriori algorithm before performing market basket analysis. Apriori algorithim is an algorithm used in the calculation of association rules between items to discover the most frequent ones. To start with, a new column is created which contains the Member number and the transaction date of items purchases.
@@ -133,9 +134,30 @@ Whole milk was the most frequently bought item but along with other items for di
 
 #### Visualization
 
-![Scatterplot](Market Basket Analysis Rules Scatter Plot.PNG) 
+These are the visualizations of the dataset to help discover the items that are frequently bought together in order to make a better decision in promoting the market items in the Grocery store  
+```python
+# transform antecedent, consequent, and support columns into matrix
+support_table = rules.pivot(index = 'consequents', columns = 'antecedents', values = 'support')
 
-![Heatmap](Market Basket Analysis HeatMap.PNG) 
+# Creating a heatmap visualization to display the consequents and antecedents
+plt.figure(figsize = (10, 6))
+sns.heatmap(support_table, annot = True, cbar = True)
+b, t = plt.ylim()
+b += 0.5
+t -= 0.5
+plt.ylim(b, t)
+plt.yticks(rotation = 0)
+plt.title('Heatmap of Frequently Bought Items')
+
+plt.show()
+```
+![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/cb1d875f-b4aa-455d-8749-1d084abf258b)
+The heatmap 
+
+```python
+
+```
+In the above chart(scatter plot), it 
 
 #### Interpretation and Insights
 
