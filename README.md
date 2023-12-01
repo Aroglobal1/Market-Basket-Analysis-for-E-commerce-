@@ -9,7 +9,7 @@ The data used for this Analysis is the "Market Basket Analysis - Grocery_dataset
 ### Tools
 
 - Excel
-- Data Analysis Tool: Python (using libraries like Pandas, ...)
+- Data Analysis Tool: Python (Libraries used are Pandas, Numpy)
 - Data Visualization Tool: Matplotlib, Seaborn
 - Scikit-Learn
 - Jupyter Notebook
