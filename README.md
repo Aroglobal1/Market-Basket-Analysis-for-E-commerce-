@@ -190,6 +190,14 @@ The chart above is a Scatter plot which displays the trade-off between support a
 
 #### Interpretation and Insights
 
+
+The Scatterplot illustrates the trade-off between support and confidence for association rules in Market Basket analysis.
+
+The scatterplot reveals a noticeable negative correlation between support and confidence. This suggests that as the support of a rule increases, the confidence of the rule decreases. Examining the scatterplot, it becomes evident that there are a few rules characterized by both high support and high confidence. These rules are not only predictable but also quite common. Take, for instance, the rule "yogurt/other vegetables --> rolls/buns," boasting a support of 0.12 and a confidence of 0.11. This indicates that the rule is present in approximately 12% of the transactions in the Grocery store dataset, and it proves predictive in 11% of the cases.
+
+Another noteworthy rule observed in the dataset is "other vegetables --> rolls/buns," exhibiting a support of 0.08 and a confidence of 0.10. This signifies that the rule is present in about 8% of the transactions in the Grocery store dataset and can be predicted in 10% of the cases.
+
+
 #### Recommendations
 
 
