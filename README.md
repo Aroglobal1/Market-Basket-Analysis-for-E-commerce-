@@ -157,24 +157,36 @@ plt.show()
 
 
 ```python
-# extract the values of support and confidence
-support_values = []
-confidence_values = []
-for rule in rules:
-    support_values.append(rule[1])
-    confidence_values.append(rule[2])
+# Creating a scatter plot visualization
 
+plt.figure(figsize = (10, 6))
+antecedents = rules['antecedents'].apply(lambda x: list(x)[0])
+consequents = rules['consequents'].apply(lambda x: list(x)[0])
+support = rules['support']
+confidence = rules['confidence']
 
-# create a scatter plot to show a trade-off between support and confidence
-plt.scatter(support_values, confidence_values)
-plt.xlabel('Support')
-plt.ylabel('Confidence')
+# create scatter plot
+plt.scatter(antecedents, consequents, c= confidence, s = support * 1500, alpha = 0.7)
 
+# Plot labels
+plt.xlabel('Antecedents')
+plt.ylabel('Consequents')
+plt.title('Scatter Plot of Rules')
+
+# Color bar
+cmap = 'viridis'
+norm = plt.Normalize(min(confidence), max(confidence))
+sm =plt.cm.ScalarMappable(cmap = cmap, norm = norm)
+sm.set_array([])
+plt.colorbar(sm, label = 'Confidence')
+
+#Display the plot
 plt.show()
 ```
-![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/11ecaea1-30b3-4392-9ec8-edac01a82e30)
+![Market Basket Analysis Rules Scatter Plot](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/0d18e246-3a27-412d-8f5f-d43a55eb0991)
 
-The chart above is a Scatter plot which displays the trade-off between support and confidence.
+
+The chart above is a Scatter plot which displays the trade-off between support and confidence for association rules.
 
 #### Interpretation and Insights
 
