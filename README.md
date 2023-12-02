@@ -156,48 +156,19 @@ plt.show()
 ![image](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/cb1d875f-b4aa-455d-8749-1d084abf258b)
 
 
-```python
-# Creating a scatter plot visualization
-
-plt.figure(figsize = (10, 6))
-antecedents = rules['antecedents'].apply(lambda x: list(x)[0])
-consequents = rules['consequents'].apply(lambda x: list(x)[0])
-support = rules['support']
-confidence = rules['confidence']
-
-# create scatter plot
-plt.scatter(antecedents, consequents, c= confidence, s = support * 1500, alpha = 0.7)
-
-# Plot labels
-plt.xlabel('Antecedents')
-plt.ylabel('Consequents')
-plt.title('Scatter Plot of Rules')
-
-# Color bar
-cmap = 'viridis'
-norm = plt.Normalize(min(confidence), max(confidence))
-sm =plt.cm.ScalarMappable(cmap = cmap, norm = norm)
-sm.set_array([])
-plt.colorbar(sm, label = 'Confidence')
-
-#Display the plot
-plt.show()
-```
-![Market Basket Analysis Rules Scatter Plot](https://github.com/Aroglobal1/Market-Basket-Analysis-for-E-commerce-/assets/148555924/0d18e246-3a27-412d-8f5f-d43a55eb0991)
-
-
-The chart above is a Scatter plot which displays the trade-off between support and confidence for association rules.
+The Heatmap displayed above illustrates the correlation between frequently bought items in a Market Basket analysis.
 
 #### Interpretation and Insights
 
+The heatmap visualization shows the correlation between items that were frequently bought together in a Market Basket analysis of a Grocery store dataset. On the x-axis, we have the antecedents of the rules, while the y-axis represents the consequents.
 
-The Scatterplot illustrates the trade-off between support and confidence for association rules in Market Basket analysis.
+The coloring of the heatmap is determined by the support of the rules. The darker the color of a cell, the higher the correlation between the two items, indicating that they are frequently purchased together.
 
-The scatterplot reveals a noticeable negative correlation between support and confidence. This suggests that as the support of a rule increases, the confidence of the rule decreases. Examining the scatterplot, it becomes evident that there are a few rules characterized by both high support and high confidence. These rules are not only predictable but also quite common. Take, for instance, the rule "yogurt/other vegetables --> rolls/buns," boasting a support of 0.12 and a confidence of 0.11. This indicates that the rule is present in approximately 12% of the transactions in the Grocery store dataset, and it proves predictive in 11% of the cases.
-
-Another noteworthy rule observed in the dataset is "other vegetables --> rolls/buns," exhibiting a support of 0.08 and a confidence of 0.10. This signifies that the rule is present in about 8% of the transactions in the Grocery store dataset and can be predicted in 10% of the cases.
+Analyzing the heatmap, it is evident that other vegetables are commonly bought alongside rolls/buns, and whole milk is frequently purchased in conjunction with yogurt, soda, and rolls/buns. The varying shades on the heatmap provide a visual representation of these correlations, offering valuable insights into the prevalent shopping patterns within the dataset.
 
 
 #### Recommendations
 
+The Grocery store could enhance its recommendations by suggesting Rolls/buns to customers who typically purchase other vegetables. Additionally, it might be beneficial to recommend yogurt, soda, and rolls/buns to customers who buy whole milk.
 
+Furthermore, the store could optimize its target market campaigns by focusing on items such as yogurt, soda, and rolls/buns that are likely to be frequently purchased alongside other vegetables and whole milk. This strategic approach aims to capitalize on the observed buying patterns and preferences of the customer base
